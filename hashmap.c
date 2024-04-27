@@ -7,7 +7,7 @@
 
 
 typedef struct HashMap HashMap;
-int enlarge_called=0;
+int enlarge_called=0
 
 struct HashMap {
     Pair ** buckets;
@@ -39,9 +39,29 @@ int is_equal(void* key1, void* key2){
 }
 
 
-void insertMap(HashMap * map, char * key, void * value) {
-
-
+void insertMap(HashMap * map, char * key, void * value) 
+{
+  int posicion = hash(key, map->capacity);
+  if (map->buckets[posicion] == NULL)
+  {
+    map->buckets[posicion] = createPair(key, value);
+    map->size++;
+    map->current = posicion;
+  }
+  else
+  {
+    while (map->buckets[posicion] != NULL)
+      {
+        posicion++;
+        if (posicion == map -> capacity) 
+        {
+          posicion = 0;
+        }
+      }
+    map->buckets[posicion] = createPair(key, value);
+    map->size++;
+    map->current = posicion;
+  }
 }
 
 void enlarge(HashMap * map) {
