@@ -234,3 +234,9 @@ test.c:439:59: error: invalid use of incomplete typedef ‘HashMap’ {aka ‘st
 cc1: all warnings being treated as errors
 Compilation failed
 1b01393
+Sat 27 Apr 2024 08:15:23 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  4|5
+total_score: 20/70
+82df06d

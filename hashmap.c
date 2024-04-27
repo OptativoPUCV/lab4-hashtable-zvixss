@@ -7,7 +7,7 @@
 
 
 typedef struct HashMap HashMap;
-int enlarge_called=0
+int enlarge_called=0;
 
 struct HashMap {
     Pair ** buckets;
