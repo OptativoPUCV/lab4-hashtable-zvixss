@@ -64,7 +64,8 @@ void insertMap(HashMap * map, char * key, void * value)
   }
 }
 
-void enlarge(HashMap * map) {
+void enlarge(HashMap * map) 
+{
     enlarge_called = 1; //no borrar (testing purposes)
 
   Pair** aux = map -> buckets;
@@ -83,9 +84,15 @@ void enlarge(HashMap * map) {
 }
 
 
-HashMap * createMap(long capacity) {
+HashMap * createMap(long capacity) 
+{
+  HashMap* mapa = (HashMap*)malloc(sizeof(HashMap));
+  mapa -> capacity = capacity;
+  mapa -> size = 0;
+  mapa -> current = -1;
+  mapa -> buckets = (Pair**)calloc(capacity, sizeof(Pair*));
 
-    return NULL;
+  return mapa;
 }
 
 void eraseMap(HashMap * map,  char * key) {    
